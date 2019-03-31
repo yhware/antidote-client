@@ -48,7 +48,7 @@
             <Button Style="{StaticResource LoginWindowIcons}" Click="OnReloadBtnClick">&#xf021;</Button>
             <Button Style="{StaticResource LoginWindowIcons}" Click="OnAdminBtnClick">&#xf0ad;</Button>
         </StackPanel>
-        <TextBlock x:Name="VersionNumber" Foreground="White" /> 
+        <TextBlock x:Name="VersionNumber" Foreground="White" Height="20" VerticalAlignment="Top" /> 
     </Grid>
 
 </Window>

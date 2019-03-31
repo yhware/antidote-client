@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Sentry;
+using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Pipes;
-using System.Windows;
 using System.Threading;
-using System.ComponentModel;
 using System.Timers;
-using Microsoft.Win32;
-using SharpRaven;
-using SharpRaven.Data;
+using System.Windows;
 
 namespace Antidote
 {
@@ -25,9 +24,7 @@ namespace Antidote
         protected override void OnStartup(StartupEventArgs e)
         {
             Common.SetTaskManager(false);
-
-            var ravenClient = new RavenClient("");
-            AppState.ravenClient = ravenClient;
+            SentrySdk.Init(Settings.Default.SENTRY_DSN);
 
             var devMode = Environment.GetEnvironmentVariable("ANTIDOTE_DEV_MODE");
             AppState.DEV_MODE = (devMode == "YES");
@@ -112,7 +109,7 @@ namespace Antidote
             }
             catch (Exception ex)
             {
-                AppState.ravenClient.Capture(new SentryEvent(ex));
+                SentrySdk.CaptureException(ex);
             }
         }
 
@@ -153,14 +150,14 @@ namespace Antidote
                         Application.Current.Shutdown();
                     });
                 }
-                
+
             }
             // Catch the IOException that is raised if the pipe is broken
             // or disconnected.
             catch (IOException exception)
             {
+                SentrySdk.CaptureException(exception);
                 Console.WriteLine("ERROR: {0}", exception.Message);
-                AppState.ravenClient.Capture(new SentryEvent(exception));
             }
             pipeServer.Close();
         }
