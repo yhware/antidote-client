@@ -1,0 +1,272 @@
+﻿<Application x:Class="Antidote.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:Antidote">
+    <Application.Resources>
+
+        <SolidColorBrush x:Key="TransparentWhite" Color="#ffffff" Opacity="0.7" />
+        <Color x:Key="PoliceBlue">#1c478c</Color>
+        <Color x:Key="PoliceYellow">#fac507</Color>
+        <SolidColorBrush x:Key="PoliceYellowBrush" Color="{StaticResource PoliceYellow}" />
+        <SolidColorBrush x:Key="PoliceBlueBrush" Color="{StaticResource PoliceBlue}" />
+
+        <Color x:Key="WindowColor">#FFE8EDF9</Color>
+        <Color x:Key="ContentAreaColorLight">#FFC5CBF9</Color>
+        <Color x:Key="ContentAreaColorDark">#FF7381F9</Color>
+
+        <Color x:Key="DisabledControlLightColor">#FFE8EDF9</Color>
+        <Color x:Key="DisabledControlDarkColor">#FFC5CBF9</Color>
+        <Color x:Key="DisabledForegroundColor">#FF888888</Color>
+
+        <Color x:Key="SelectedBackgroundColor">#FFC5CBF9</Color>
+        <Color x:Key="SelectedUnfocusedColor">#FFDDDDDD</Color>
+
+        <Color x:Key="ControlLightColor">White</Color>
+        <Color x:Key="ControlMediumColor">#FF7381F9</Color>
+        <Color x:Key="ControlDarkColor">#FF211AA9</Color>
+
+        <Color x:Key="ControlMouseOverColor">#FF3843C4</Color>
+        <Color x:Key="ControlPressedColor">#FF211AA9</Color>
+
+
+        <Color x:Key="GlyphColor">#FF444444</Color>
+        <Color x:Key="GlyphMouseOver">sc#1, 0.004391443, 0.002428215, 0.242281124</Color>
+
+        <!--Border colors-->
+        <Color x:Key="BorderLightColor">#FFCCCCCC</Color>
+        <Color x:Key="BorderMediumColor">#FF888888</Color>
+        <Color x:Key="BorderDarkColor">#FF444444</Color>
+
+        <Color x:Key="PressedBorderLightColor">#FF888888</Color>
+        <Color x:Key="PressedBorderDarkColor">#FF444444</Color>
+
+        <Color x:Key="DisabledBorderLightColor">#FFAAAAAA</Color>
+        <Color x:Key="DisabledBorderDarkColor">#FF888888</Color>
+
+        <Color x:Key="DefaultBorderBrushDarkColor">Black</Color>
+
+        <!--Control-specific resources.-->
+        <Color x:Key="HeaderTopColor">#FFC5CBF9</Color>
+        <Color x:Key="DatagridCurrentCellBorderColor">Black</Color>
+        <Color x:Key="SliderTrackDarkColor">#FFC5CBF9</Color>
+
+        <Color x:Key="NavButtonFrameColor">#FF3843C4</Color>
+
+        <LinearGradientBrush x:Key="MenuPopupBrush"
+                     EndPoint="0.5,1"
+                     StartPoint="0.5,0">
+            <GradientStop Color="{DynamicResource ControlLightColor}"
+                Offset="0" />
+            <GradientStop Color="{DynamicResource ControlMediumColor}"
+                Offset="0.5" />
+            <GradientStop Color="{DynamicResource ControlLightColor}"
+                Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ProgressBarIndicatorAnimatedFill"
+                     StartPoint="0,0"
+                     EndPoint="1,0">
+            <LinearGradientBrush.GradientStops>
+                <GradientStopCollection>
+                    <GradientStop Color="#000000FF"
+                    Offset="0" />
+                    <GradientStop Color="#600000FF"
+                    Offset="0.4" />
+                    <GradientStop Color="#600000FF"
+                    Offset="0.6" />
+                    <GradientStop Color="#000000FF"
+                    Offset="1" />
+                </GradientStopCollection>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+
+
+        <Style x:Key="LoginTextBoxStyle" TargetType="{x:Type TextBoxBase}">
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily" Value="pack://application:,,,/fonts/#Noto Sans KR Regular" />
+        </Style>
+
+        <Style x:Key="LoginBtn" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily"  Value="pack://application:,,,/fonts/#Noto Sans KR Regular" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+
+        <Style x:Key="LoginPasswordBoxStyle"
+       TargetType="{x:Type PasswordBox}">
+            <Setter Property="SnapsToDevicePixels"
+          Value="true" />
+            <Setter Property="OverridesDefaultStyle"
+          Value="true" />
+            <Setter Property="KeyboardNavigation.TabNavigation"
+          Value="None" />
+            <Setter Property="FocusVisualStyle"
+          Value="{x:Null}" />
+            <Setter Property="FontFamily"
+          Value="pack://application:,,,/fonts/#Noto Sans KR Regular" />
+            <Setter Property="PasswordChar"
+          Value="*" />
+            <Setter Property="Width"
+          Value="200" />
+            <Setter Property="Height"
+          Value="30" />
+            <Setter Property="AllowDrop"
+          Value="true" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+                        <Border x:Name="Border"
+                CornerRadius="1"
+                Padding="2"
+                BorderThickness="1">
+                            <Border.Background>
+                                <SolidColorBrush Color="{DynamicResource ControlLightColor}" />
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="{DynamicResource BorderMediumColor}" />
+                            </Border.BorderBrush>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />#b6bcc4
+                                    <VisualState x:Name="Disabled" />
+                                    <VisualState x:Name="MouseOver" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="NotoSansThin">
+            <Setter Property="TextElement.FontFamily"  Value="pack://application:,,,/fonts/#Noto Sans KR Thin" />
+        </Style>
+        <Style x:Key="NotoSansRegular">
+            <Setter Property="TextElement.FontFamily"  Value="pack://application:,,,/fonts/#Noto Sans KR Regular" />
+        </Style>
+        <Style x:Key="NotoSansMedium">
+            <Setter Property="TextElement.FontFamily"  Value="pack://application:,,,/fonts/#Noto Sans KR Medium" />
+        </Style>
+        <Style x:Key="NotoSansBlack">
+            <Setter Property="TextElement.FontFamily"  Value="pack://application:,,,/fonts/#Noto Sans KR Black" />
+        </Style>
+
+
+        <Style x:Key="LoginFormLabelStyle" TargetType="Label" BasedOn="{StaticResource NotoSansRegular}">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style x:Key="MainMenuIconLabel" BasedOn="{StaticResource NotoSansRegular}" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Margin"  Value="15,0,0,0" />
+            <Setter Property="Foreground"  Value="{StaticResource TransparentWhite}" />
+        </Style>
+
+        <Style x:Key="TimeLabel" TargetType="TextBlock" BasedOn="{StaticResource NotoSansMedium}">
+            <Setter Property="FontSize"  Value="16" />
+            <Setter Property="Foreground"  Value="{StaticResource TransparentWhite}" />
+        </Style>
+
+        <Style x:Key="TimeCounter" TargetType="TextBlock" BasedOn="{StaticResource NotoSansThin}">
+            <Setter Property="FontSize"  Value="30" />
+            <Setter Property="Foreground"  Value="{StaticResource TransparentWhite}" />
+        </Style>
+
+        <Style x:Key="NoticeTitle" TargetType="TextBlock" BasedOn="{StaticResource NotoSansBlack}">
+            <Setter Property="FontSize"  Value="25" />
+            <Setter Property="Background"  Value="{StaticResource PoliceYellowBrush}" />
+            <Setter Property="Foreground"  Value="#282828" />
+            <Setter Property="Opacity"  Value="0.9" />
+        </Style>
+
+
+        <Style x:Key="NoticeContent" TargetType="TextBox" BasedOn="{StaticResource NotoSansRegular}">
+            <Setter Property="FontSize"  Value="15" />
+            <Setter Property="Foreground"  Value="White" />
+            <Setter Property="Opacity"  Value="0.9" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="Background" Value="{StaticResource PoliceBlueBrush}" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Margin" Value="20,0,20,10"  />
+            <Setter Property="Height" Value="180" />
+        </Style>
+
+
+        <Style x:Key="FontAwesome">
+            <Setter Property="TextElement.FontFamily"  Value="pack://application:,,,/fonts/#FontAwesome" />
+            <Setter Property="TextElement.Foreground"  Value="{StaticResource TransparentWhite}" />
+            <Setter Property="TextElement.FontSize"  Value="20" />
+        </Style>
+
+        <Style x:Key="LoginWindowIcons" TargetType="Button" BasedOn="{StaticResource FontAwesome}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Width" Value="35" />
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Margin" Value="10,0,0,0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+
+
+        <Style x:Key="MainWindowBtn" TargetType="Button" BasedOn="{StaticResource FontAwesome}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Width" Value="60" />
+            <Setter Property="FontSize" Value="55" />
+            <Setter Property="Margin" Value="10,0,10,10" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource PoliceYellowBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="MainWindowBtnLbl" TargetType="TextBlock" BasedOn="{StaticResource NotoSansRegular}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="13" />
+        </Style>
+
+        <Style x:Key="GenericPwBox" TargetType="PasswordBox">
+            <Setter Property="FontFamily" Value="pack://application:,,,/fonts/#Noto Sans KR Regular" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="PasswordChar" Value="*" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height"  Value="30" />
+            <Setter Property="Margin" Value="0,5,0,5" />
+        </Style>
+
+        <Style x:Key="PwResetWindowLabel" TargetType="TextBlock" BasedOn="{StaticResource NotoSansRegular}">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Margin" Value="0,10,0,10" />
+        </Style>
+    </Application.Resources>
+</Application>

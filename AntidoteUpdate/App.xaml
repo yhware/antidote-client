@@ -1,0 +1,13 @@
+﻿<Application x:Class="AntidoteUpdate.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AntidoteUpdate"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Color x:Key="PoliceBlue">#1c478c</Color>
+
+        <SolidColorBrush x:Key="PoliceBlueBrush" Color="{StaticResource PoliceBlue}" />
+         
+    </Application.Resources>
+</Application>

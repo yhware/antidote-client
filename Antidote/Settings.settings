@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Antidote" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PRD_API_HOST" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://api.antidote-mgr.com</Value>
+    </Setting>
+    <Setting Name="DEV_API_HOST" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost:5000</Value>
+    </Setting>
+    <Setting Name="DEV_WS_HOST" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ws://localhost:8888/ws</Value>
+    </Setting>
+    <Setting Name="PRD_WS_HOST" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">wss://ws.antidote-mgr.com/ws</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,33 @@
+﻿<Page x:Class="Antidote.InitSetupAdminLoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Antidote"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Foreground="White"
+      Title="InitSetupAdminLoginPage">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Vertical">
+            <TextBlock Margin="0,0,0,10" TextAlignment="Center" FontSize="25" FontWeight="Bold">관리자 로그인</TextBlock>
+            <TextBlock Margin="0,0,0,10" Width="260" TextWrapping="Wrap" TextAlignment="Center">초기설정을 위해 관리자 로그인이 필요합니다.</TextBlock>
+            <TextBlock Margin="0,0,0,0" Width="260" TextWrapping="Wrap" TextAlignment="Center">
+                            일반 사용자 로그인이 아닌 관리자 페이지 로그인 시 이용하는 부대관리자 로그인이 필요합니다.
+            </TextBlock>
+            <TextBlock Margin="0,0,0,10"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="60">아이디</TextBlock>
+                <TextBox x:Name="Username" Width="200" Height="25" Margin="0,0,0,10"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="60">비밀번호</TextBlock>
+                <PasswordBox x:Name="Password" Width="200" Height="25"/>
+            </StackPanel>
+            <TextBlock x:Name="ErrMsg" Margin="0,5,0,5" Foreground="Red" TextAlignment="Center" />
+            <Button x:Name="LoginBtn" Click="OnLoginBtnClick"  Margin="0,0,0,0" Height="30">로그인</Button>
+        </StackPanel>
+
+    </Grid>
+</Page>

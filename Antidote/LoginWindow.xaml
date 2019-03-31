@@ -1,0 +1,54 @@
+﻿<Window x:Class="Antidote.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Antidote"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="auto" Width="auto"
+        WindowStyle="None" ResizeMode="NoResize"  Topmost="True"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="https://s3.ap-northeast-2.amazonaws.com/antidote-static/antidote_login_bg.jpg" />
+        </Grid.Background>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="{StaticResource TransparentWhite}" Width="640" Height="350">
+            <Grid Height="350">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="290"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition />
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Height="225" Width="223.5" Source="PoliceLogo.png"/>
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                            <StackPanel Orientation="Vertical" Margin="0,0,5,0">
+                                <Label Content="아이디" Margin="0,0,0,10" Style="{StaticResource LoginFormLabelStyle}"/>
+                                <Label Content="비밀번호" Style="{StaticResource LoginFormLabelStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical">
+                                <TextBox x:Name="LoginUsernameTextBox" Style="{StaticResource LoginTextBoxStyle}" Margin="0,0,0,10" KeyDown="LoginUsernameTextBox_KeyDown" />
+                                <PasswordBox x:Name="LoginPasswordTextBox"  Style="{StaticResource GenericPwBox}" KeyDown="LoginUsernameTextBox_KeyDown" />
+                            </StackPanel>
+                        </StackPanel>
+                        <Button Style="{StaticResource LoginBtn}" x:Name="LoginBtn" Click="OnLogin">로그인</Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        
+        <Button Visibility="Hidden" Content="Button" HorizontalAlignment="Left" Height="26" Margin="136,128,0,0" VerticalAlignment="Top" Width="52" Click="Close_Window"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,100,20">
+            <Button Style="{StaticResource LoginWindowIcons}" Click="OnReloadBtnClick">&#xf021;</Button>
+            <Button Style="{StaticResource LoginWindowIcons}" Click="OnAdminBtnClick">&#xf0ad;</Button>
+        </StackPanel>
+        <TextBlock x:Name="VersionNumber" Foreground="White" /> 
+    </Grid>
+
+</Window>
